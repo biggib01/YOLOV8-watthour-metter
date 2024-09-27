@@ -32,33 +32,6 @@ def trainRoute():
 def home():
     return render_template("index.html")
 
-
-# @app.route('/download-image', methods=['POST'])
-# def download_image():
-#     # Get the URL from the request (assume it's passed as JSON)
-#     data = request.json
-#     blob_url = data.get('url')
-#
-#     if not blob_url:
-#         return {"error": "URL is required"}, 400
-#
-#     try:
-#         # Download the image from the URL
-#         response = requests.get(blob_url)
-#         response.raise_for_status()  # Raise an error for bad responses
-#
-#         # Save the image with the name "inputImage"
-#         image_path = os.path.join(SAVE_PATH, "inputImage.jpg")
-#
-#         with open(image_path, 'wb') as f:
-#             f.write(response.content)
-#
-#         return {"message": "Image downloaded successfully", "path": image_path}, 200
-#
-#     except requests.exceptions.RequestException as e:
-#         return {"error": str(e)}, 500
-
-
 @app.route("/predict", methods=['POST', 'GET'])
 @cross_origin()
 def predictRoute():
